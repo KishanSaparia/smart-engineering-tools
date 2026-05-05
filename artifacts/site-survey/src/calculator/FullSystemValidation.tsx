@@ -23,12 +23,14 @@ import {
   runFullSystemValidationEngine
 } from './validationEngine';
 
+type ResistanceUnit = 'ohm/km' | 'ohm/ft';
+
 export default function FullSystemValidation() {
 
   // Transformer Inputs
   const [txForm, setTxForm] = useState({ kVA: '', primaryV: '', secondaryV: '', impedancePercent: '' });
   // Cable Inputs
-  const [cbForm, setCbForm] = useState({ size: '', material: 'Copper' as CableMaterial, runs: '', length: '', lengthUnit: 'ft' as 'ft' | 'm', customResistance: '', resistanceUnit: 'ohm/km' as 'ohm/km' | 'ohm/ft' });
+  const [cbForm, setCbForm] = useState({ size: '', material: 'Copper' as CableMaterial, runs: '', length: '', lengthUnit: 'ft' as 'ft' | 'm', customResistance: '', resistanceUnit: 'ohm/km' as ResistanceUnit });
   // Load Inputs
   const [ldForm, setLdForm] = useState({ current: '', isContinuous: true });
   // Breaker Inputs (Optional)
@@ -42,7 +44,7 @@ export default function FullSystemValidation() {
 
   const handleReset = () => {
     setTxForm({ kVA: '', primaryV: '', secondaryV: '', impedancePercent: '' });
-    setCbForm({ size: '', material: 'Copper', runs: '', length: '', lengthUnit: 'ft', customResistance: '', resistanceUnit: 'ohm/km' });
+    setCbForm({ size: '', material: 'Copper', runs: '', length: '', lengthUnit: 'ft', customResistance: '', resistanceUnit: 'ohm/km' as ResistanceUnit });
     setLdForm({ current: '', isContinuous: true });
     setBrForm({ rating: '', kAIC: '' });
     setEqForm({ rating: '', kAIC: '' });
@@ -162,7 +164,7 @@ export default function FullSystemValidation() {
           </label>
           <div className="flex gap-2">
             <input type="number" min="0" step="0.001" placeholder="Standard Table Used" value={cbForm.customResistance} onChange={e => setCbForm(p => ({ ...p, customResistance: e.target.value }))} className="flex-1 rounded-xl border border-border bg-background px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground/40 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all" />
-            <select value={cbForm.resistanceUnit} onChange={e => setCbForm(p => ({ ...p, resistanceUnit: e.target.value }))} className="rounded-xl border border-border bg-background px-3 py-2.5 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-primary/30 transition-all">
+            <select value={cbForm.resistanceUnit} onChange={e => setCbForm(p => ({ ...p, resistanceUnit: e.target.value as ResistanceUnit }))} className="rounded-xl border border-border bg-background px-3 py-2.5 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-primary/30 transition-all">
               <option value="ohm/km">Ω/km</option>
               <option value="ohm/ft">Ω/ft</option>
             </select>

@@ -56,6 +56,21 @@ const SELECT_CLS =
   'w-full rounded-xl border border-border bg-background px-4 py-2.5 text-sm text-foreground ' +
   'focus:outline-none focus:ring-2 focus:ring-emerald-500/30 focus:border-emerald-500 transition-all';
 
+type MotorDesignErrorResult = {
+  error: string;
+};
+
+type MotorDesignSuccessResult = {
+  flc: number;
+  overload: number;
+  breaker: ReturnType<typeof calculateBreakerSize>;
+  solutions: GeneratedSolution[];
+  isSafe: boolean;
+  error: null;
+};
+
+type MotorDesignResult = MotorDesignErrorResult | MotorDesignSuccessResult;
+
 /* ── Motor nameplate card ─────────────────────────────────── */
 function MotorNameplate({ hp, voltage, motorType, starterType }: {
   hp: MotorHP | '';
@@ -113,7 +128,7 @@ export default function MotorDesign() {
   }, [form.hp, isHighHP]);
 
   // ── Derived results (useMemo so never called during render with side-effects) ──
-  const results = useMemo(() => {
+  const results = useMemo<MotorDesignResult | null>(() => {
     if (!form.hp || !form.voltage) return null;
 
     const hp = form.hp as MotorHP;
@@ -134,11 +149,13 @@ export default function MotorDesign() {
     return { flc, overload, breaker, solutions, isSafe: solutions.length > 0, error: null };
   }, [form.hp, form.voltage, form.cableLength, form.lengthUnit, form.allowedVd, form.starterType, form.protectionDevice]);
 
+  const successResult = results && results.error === null ? results : null;
+
   // ── Scroll to results when they first appear ──
   useEffect(() => {
-    if (results && !results.error) setTimeout(scrollToResult, 150);
+    if (successResult) setTimeout(scrollToResult, 150);
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [form.hp, form.voltage]);
+  }, [form.hp, form.voltage, successResult]);
 
   const computedError = results?.error ?? null;
   const displayError = userError ?? computedError;
@@ -277,7 +294,7 @@ export default function MotorDesign() {
           </CalcSection>
       {/* ── Results ────────────────────────────────────── */}
       <div ref={resultRef}>
-          {results && !results.error ? (
+          {successResult ? (
             <div className="space-y-4 animate-in fade-in slide-in-from-bottom-3 duration-300">
               {/* FLC Hero */}
               <div className="bg-card rounded-2xl border border-emerald-500/30 p-5 shadow-sm flex items-center justify-between">
@@ -285,31 +302,31 @@ export default function MotorDesign() {
                   <p className="text-xs font-semibold text-muted-foreground uppercase tracking-widest mb-1">Full Load Current</p>
                   <p className="text-xs text-muted-foreground">NEC Table 430.250 · {form.hp} HP @ {form.voltage} V</p>
                 </div>
-                <p className="text-3xl font-extrabold text-emerald-600 dark:text-emerald-400">{results.flc.toFixed(1)} <span className="text-lg font-semibold">A</span></p>
+                <p className="text-3xl font-extrabold text-emerald-600 dark:text-emerald-400">{successResult.flc.toFixed(1)} <span className="text-lg font-semibold">A</span></p>
               </div>
 
               {/* Warnings */}
-              {results.solutions.length === 0 && Number(form.cableLength) > 0 && (
+              {successResult.solutions.length === 0 && Number(form.cableLength) > 0 && (
                 <StatusBanner variant="red" icon={<ShieldX className="w-4 h-4" />}>
                   Cannot meet voltage drop limit — try larger cable, parallel conductors, or reduced-voltage starting.
                 </StatusBanner>
               )}
-              {results.solutions.length > 0 && results.solutions[0].startingVDPercent > 12 && (
+              {successResult.solutions.length > 0 && successResult.solutions[0].startingVDPercent > 12 && (
                 <StatusBanner variant="amber" icon={<AlertTriangle className="w-4 h-4" />}>
-                  High starting voltage drop ({results.solutions[0].startingVDPercent.toFixed(1)}%) — consider VFD or Soft Starter.
+                  High starting voltage drop ({successResult.solutions[0].startingVDPercent.toFixed(1)}%) — consider VFD or Soft Starter.
                 </StatusBanner>
               )}
-              {results.solutions.length > 0 && results.solutions[0].headroom > 30 && (
+              {successResult.solutions.length > 0 && successResult.solutions[0].headroom > 30 && (
                 <StatusBanner variant="primary" icon={<Settings className="w-4 h-4" />}>
-                  Cable oversized (headroom {results.solutions[0].headroom.toFixed(1)}%) — consider reducing size if voltage drop allows.
+                  Cable oversized (headroom {successResult.solutions[0].headroom.toFixed(1)}%) — consider reducing size if voltage drop allows.
                 </StatusBanner>
               )}
 
               {/* Cable Solutions */}
-              {results.solutions.length > 0 && (
+              {successResult.solutions.length > 0 && (
                 <CalcSection title="Optimized Cable Solutions">
                   <div className="space-y-4">
-                    {results.solutions.map((sol, idx) => {
+                    {successResult.solutions.map((sol, idx) => {
                       const isRec = idx === 0;
                       const isAlt = idx === 1;
                       const border = isRec
@@ -354,25 +371,25 @@ export default function MotorDesign() {
               {/* Protection */}
               <CalcSection title="Branch Circuit Protection">
                 <ResultGrid cols={2}>
-                  <ResultCard label="Overload Setting (NEC 430.32)" value={`${results.overload.toFixed(1)} A`} sub="125% of FLC" variant="primary" />
-                  <ResultCard label="Short-Circuit Protection" value={`${results.breaker.standard} A`} sub={`Calc: ${results.breaker.calculated.toFixed(1)} A`} variant="primary" />
+                  <ResultCard label="Overload Setting (NEC 430.32)" value={`${successResult.overload.toFixed(1)} A`} sub="125% of FLC" variant="primary" />
+                  <ResultCard label="Short-Circuit Protection" value={`${successResult.breaker.standard} A`} sub={`Calc: ${successResult.breaker.calculated.toFixed(1)} A`} variant="primary" />
                 </ResultGrid>
               </CalcSection>
 
               {/* Summary */}
-              {results.solutions.length > 0 && (
+              {successResult.solutions.length > 0 && (
                 <CalcSection title="Final Summary">
-                  <StatusBanner variant={results.isSafe ? 'green' : 'red'}
-                    icon={results.isSafe ? <ShieldCheck className="w-4 h-4" /> : <ShieldX className="w-4 h-4" />}>
-                    {results.isSafe ? 'SAFE — Design meets NEC requirements' : 'REVIEW REQUIRED'}
+                  <StatusBanner variant={successResult.isSafe ? 'green' : 'red'}
+                    icon={successResult.isSafe ? <ShieldCheck className="w-4 h-4" /> : <ShieldX className="w-4 h-4" />}>
+                    {successResult.isSafe ? 'SAFE — Design meets NEC requirements' : 'REVIEW REQUIRED'}
                   </StatusBanner>
                   <InfoBox>
                     <p>Motor: <span className="font-semibold text-foreground">{form.hp} HP @ {form.voltage} V</span></p>
-                    <p>FLC: <span className="font-semibold text-foreground">{results.flc.toFixed(1)} A</span></p>
+                    <p>FLC: <span className="font-semibold text-foreground">{successResult.flc.toFixed(1)} A</span></p>
                     <p>Recommended Cable: <span className="font-semibold text-foreground">
-                      {results.solutions[0].runs > 1 ? `${results.solutions[0].runs} × ` : ''}{results.solutions[0].size} Copper
+                      {successResult.solutions[0].runs > 1 ? `${successResult.solutions[0].runs} × ` : ''}{successResult.solutions[0].size} Copper
                     </span></p>
-                    <p>Protection: <span className="font-semibold text-foreground">{results.breaker.standard} A</span></p>
+                    <p>Protection: <span className="font-semibold text-foreground">{successResult.breaker.standard} A</span></p>
                   </InfoBox>
                 </CalcSection>
               )}

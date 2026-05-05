@@ -237,7 +237,6 @@ export default function FullLoadCurrent() {
         >
           <CalcSection title="Results">
             <HeroMetric
-              id="flc-result-current"
               label="Full Load Current (Three-Phase)"
               value={result.current.toLocaleString()}
               unit="A"

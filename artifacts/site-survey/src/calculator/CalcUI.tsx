@@ -442,7 +442,7 @@ export function SectionDivider({ label }: { label?: string }) {
  * Returns a ref + a `scrollTo()` function.
  * Call scrollTo() to smoothly scroll the attached element into view.
  */
-export function useScrollRef<T extends HTMLElement = HTMLElement>() {
+export function useScrollRef<T extends HTMLElement = HTMLDivElement>() {
   const ref = useRef<T | null>(null);
   const scrollTo = () =>
     ref.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });

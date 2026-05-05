@@ -93,11 +93,11 @@ export default function TransformerSC() {
   const [error, setError] = useState<{ field: FieldKey | null; msg: string } | null>(null);
 
   const { ref: resultRef, scrollTo: scrollToResult } = useScrollRef();
-  const fieldRefs: Partial<Record<FieldKey, ReturnType<typeof useScrollRef>>> = {
-    kva: useScrollRef(),
-    primaryVoltage: useScrollRef(),
-    secondaryVoltage: useScrollRef(),
-    impedance: useScrollRef(),
+  const fieldRefs: Record<FieldKey, ReturnType<typeof useScrollRef<HTMLDivElement>>> = {
+    kva: useScrollRef<HTMLDivElement>(),
+    primaryVoltage: useScrollRef<HTMLDivElement>(),
+    secondaryVoltage: useScrollRef<HTMLDivElement>(),
+    impedance: useScrollRef<HTMLDivElement>(),
   };
 
   function handleCalculate() {
@@ -105,8 +105,9 @@ export default function TransformerSC() {
     if (err) {
       setError(err);
       setResult(null);
-      if (err.field && fieldRefs[err.field]) {
-        setTimeout(() => fieldRefs[err.field]!.scrollTo(), 80);
+      const fieldKey = err.field;
+      if (fieldKey) {
+        setTimeout(() => fieldRefs[fieldKey].scrollTo(), 80);
       }
       return;
     }
@@ -160,7 +161,7 @@ export default function TransformerSC() {
 
       {/* ── Inputs ─────────────────────────────────────── */}
       <CalcSection title="Transformer Parameters">
-        <div ref={fieldRefs.kva!.ref}>
+        <div ref={fieldRefs.kva.ref}>
           <CalcInput
             label="Transformer Rating" unit="kVA" required fieldId="tsc-kva"
             type="number" min="0" step="any" value={form.kva}
@@ -169,7 +170,7 @@ export default function TransformerSC() {
           />
         </div>
         <div className="grid grid-cols-2 gap-3">
-          <div ref={fieldRefs.primaryVoltage!.ref}>
+          <div ref={fieldRefs.primaryVoltage.ref}>
             <CalcInput
               label="Primary Voltage" unit="V" required fieldId="tsc-vpri"
               type="number" min="0" step="any" value={form.primaryVoltage}
@@ -177,7 +178,7 @@ export default function TransformerSC() {
               invalid={error?.field === 'primaryVoltage'}
             />
           </div>
-          <div ref={fieldRefs.secondaryVoltage!.ref}>
+          <div ref={fieldRefs.secondaryVoltage.ref}>
             <CalcInput
               label="Secondary Voltage" unit="V" required fieldId="tsc-vsec"
               type="number" min="0" step="any" value={form.secondaryVoltage}
@@ -186,7 +187,7 @@ export default function TransformerSC() {
             />
           </div>
         </div>
-        <div ref={fieldRefs.impedance!.ref}>
+        <div ref={fieldRefs.impedance.ref}>
           <CalcInput
             label="Impedance" unit="%Z" required fieldId="tsc-impedance"
             type="number" min="0.1" max="100" step="any" value={form.impedance}

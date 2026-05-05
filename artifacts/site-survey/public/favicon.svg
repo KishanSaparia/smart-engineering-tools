@@ -1,11 +1,10 @@
-<svg width="180" height="180" viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect width="180" height="180" rx="28" fill="#F2F2F2"/>
-
-  <!-- Blue triangle frame -->
-  <path d="M90 14L164 166H16L90 14ZM90 44L42 144H138L90 44Z" fill="#0D4F89"/>
-
-  <!-- Black and red survey lines -->
-  <path d="M16 56C42 56 58 66 74 86C94 111 112 122 164 122" stroke="#201A19" stroke-width="6" fill="none"/>
-  <path d="M16 74C38 74 58 82 80 108C100 130 122 140 164 140" stroke="#E4201B" stroke-width="6" fill="none"/>
-  <path d="M16 92C42 92 58 104 78 126C96 144 116 156 164 156" stroke="#201A19" stroke-width="6" fill="none"/>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <rect width="64" height="64" rx="14" fill="#0A1F44"/>
+  <circle cx="32" cy="32" r="26" stroke="#1E88E5" stroke-width="2" fill="none" opacity="0.6"/>
+  <path d="M34 10 L20 34 H30 L26 54 L44 26 H34 Z"
+        fill="#FFC107"
+        stroke="#FFB300"
+        stroke-width="1.2"
+        stroke-linejoin="round"/>
 </svg>

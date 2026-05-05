@@ -1,0 +1,293 @@
+
+> @workspace/site-survey@0.0.0 dev /home/runner/workspace/artifacts/site-survey
+> vite --config vite.config.ts --host 0.0.0.0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J
+  [32m[1mVITE[22m v7.3.1[39m  [2mready in [0m[1m1577[22m[2m[0m ms[22m
+
+  [32m➜[39m  [1mLocal[22m:   [36mhttp://localhost:[1m23696[22m/[39m
+  [32m➜[39m  [1mNetwork[22m: [36mhttp://172.31.100.226:[1m23696[22m/[39m
+[2m[32m  ➜[39m[22m[2m  press [22m[1mh + enter[22m[2m to show help[22m
+[RUNTIME_ERROR]{"type":"runtime-error","timestamp":1776178058614,"name":"Error","message":"Rendered more hooks than during the previous render.","stack":"\n\n\n\n    at ProjectDetail /home/runner/workspace/artifacts/site-survey/src/pages/project-detail.tsx:71:27\n\n\n\n\n","loc":{"line":71,"column":27,"file":"/home/runner/workspace/artifacts/site-survey/src/pages/project-detail.tsx"},"frame":"69 |    const totalPhotos = entries.reduce((sum, e) => sum + e.photos.length, 0);\n70 |  \n71 |    const filteredEntries = useMemo(() => {\n   |                            ^\n72 |      const q = search.trim().toLowerCase();\n73 |      return entries.filter((entry) => {"}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m2:48:03 PM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/project-detail.tsx, /src/index.css[22m
+[replit-cartographer] Error processing /home/runner/workspace/artifacts/site-survey/src/pages/project-detail.tsx: SyntaxError: Identifier 'filteredEntries' has already been declared. (84:8)
+    at constructor (/home/runner/workspace/node_modules/[4m.pnpm[24m/@babel+parser@7.29.0/node_modules/[4m@babel/parser[24m/lib/index.js:365:19)
+    at TypeScriptParserMixin.raise (/home/runner/workspace/node_modules/[4m.pnpm[24m/@babel+parser@7.29.0/node_modules/[4m@babel/parser[24m/lib/index.js:6599:19)
+    at TypeScriptScopeHandler.checkRedeclarationInScope (/home/runner/workspace/node_modules/[4m.pnpm[24m/@babel+parser@7.29.0/node_modules/[4m@babel/parser[24m/lib/index.js:1619:19)
+    at TypeScriptScopeHandler.declareName (/home/runner/workspace/node_modules/[4m.pnpm[24m/@babel+parser@7.29.0/node_modules/[4m@babel/parser[24m/lib/index.js:1585:12)
+    at TypeScriptScopeHandler.declareName (/home/runner/workspace/node_modules/[4m.pnpm[24m/@babel+parser@7.29.0/node_modules/[4m@babel/parser[24m/lib/index.js:4880:11)
+    at TypeScriptParserMixin.declareNameFromIdentifier (/home/runner/workspace/node_modules/[4m.pnpm[24m/@babel+parser@7.29.0/node_modules/[4m@babel/parser[24m/lib/index.js:7567:16)
+    at TypeScriptParserMixin.checkIdentifier (/home/runner/workspace/node_modules/[4m.pnpm[24m/@babel+parser@7.29.0/node_modules/[4m@babel/parser[24m/lib/index.js:7563:12)
+    at TypeScriptParserMixin.checkLVal (/home/runner/workspace/node_modules/[4m.pnpm[24m/@babel+parser@7.29.0/node_modules/[4m@babel/parser[24m/lib/index.js:7500:12)
+    at TypeScriptParserMixin.parseVarId (/home/runner/workspace/node_modules/[4m.pnpm[24m/@babel+parser@7.29.0/node_modules/[4m@babel/parser[24m/lib/index.js:13412:10)
+    at TypeScriptParserMixin.parseVarId (/home/runner/workspace/node_modules/[4m.pnpm[24m/@babel+parser@7.29.0/node_modules/[4m@babel/parser[24m/lib/index.js:9752:11)
+    at TypeScriptParserMixin.parseVar (/home/runner/workspace/node_modules/[4m.pnpm[24m/@babel+parser@7.29.0/node_modules/[4m@babel/parser[24m/lib/index.js:13383:12)
+    at TypeScriptParserMixin.parseVarStatement (/home/runner/workspace/node_modules/[4m.pnpm[24m/@babel+parser@7.29.0/node_modules/[4m@babel/parser[24m/lib/index.js:13230:10)
+    at TypeScriptParserMixin.parseVarStatement (/home/runner/workspace/node_modules/[4m.pnpm[24m/@babel+parser@7.29.0/node_modules/[4m@babel/parser[24m/lib/index.js:9408:31)
+    at TypeScriptParserMixin.parseStatementContent (/home/runner/workspace/node_modules/[4m.pnpm[24m/@babel+parser@7.29.0/node_modules/[4m@babel/parser[24m/lib/index.js:12851:23)
+    at TypeScriptParserMixin.parseStatementContent (/home/runner/workspace/node_modules/[4m.pnpm[24m/@babel+parser@7.29.0/node_modules/[4m@babel/parser[24m/lib/index.js:9508:18)
+    at TypeScriptParserMixin.parseStatementLike (/home/runner/workspace/node_modules/[4m.pnpm[24m/@babel+parser@7.29.0/node_modules/[4m@babel/parser[24m/lib/index.js:12767:17)
+    at TypeScriptParserMixin.parseStatementListItem (/home/runner/workspace/node_modules/[4m.pnpm[24m/@babel+parser@7.29.0/node_modules/[4m@babel/parser[24m/lib/index.js:12747:17)
+    at TypeScriptParserMixin.parseBlockOrModuleBlockBody (/home/runner/workspace/node_modules/[4m.pnpm[24m/@babel+parser@7.29.0/node_modules/[4m@babel/parser[24m/lib/index.js:13316:61)
+    at TypeScriptParserMixin.parseBlockBody (/home/runner/workspace/node_modules/[4m.pnpm[24m/@babel+parser@7.29.0/node_modules/[4m@babel/parser[24m/lib/index.js:13309:10)
+    at TypeScriptParserMixin.parseBlock (/home/runner/workspace/node_modules/[4m.pnpm[24m/@babel+parser@7.29.0/node_modules/[4m@babel/parser[24m/lib/index.js:13297:10)
+    at TypeScriptParserMixin.parseFunctionBody (/home/runner/workspace/node_modules/[4m.pnpm[24m/@babel+parser@7.29.0/node_modules/[4m@babel/parser[24m/lib/index.js:12100:24)
+    at TypeScriptParserMixin.parseFunctionBodyAndFinish (/home/runner/workspace/node_modules/[4m.pnpm[24m/@babel+parser@7.29.0/node_modules/[4m@babel/parser[24m/lib/index.js:12086:10)
+    at TypeScriptParserMixin.parseFunctionBodyAndFinish (/home/runner/workspace/node_modules/[4m.pnpm[24m/@babel+parser@7.29.0/node_modules/[4m@babel/parser[24m/lib/index.js:9172:18)
+    at /home/runner/workspace/node_modules/[4m.pnpm[24m/@babel+parser@7.29.0/node_modules/[4m@babel/parser[24m/lib/index.js:13445:12
+    at TypeScriptParserMixin.withSmartMixTopicForbiddingContext (/home/runner/workspace/node_modules/[4m.pnpm[24m/@babel+parser@7.29.0/node_modules/[4m@babel/parser[24m/lib/index.js:12403:14)
+    at TypeScriptParserMixin.parseFunction (/home/runner/workspace/node_modules/[4m.pnpm[24m/@babel+parser@7.29.0/node_modules/[4m@babel/parser[24m/lib/index.js:13444:10)
+    at TypeScriptParserMixin.parseExportDefaultExpression (/home/runner/workspace/node_modules/[4m.pnpm[24m/@babel+parser@7.29.0/node_modules/[4m@babel/parser[24m/lib/index.js:13907:19)
+    at TypeScriptParserMixin.parseExportDefaultExpression (/home/runner/workspace/node_modules/[4m.pnpm[24m/@babel+parser@7.29.0/node_modules/[4m@babel/parser[24m/lib/index.js:9402:18)
+    at TypeScriptParserMixin.parseExport (/home/runner/workspace/node_modules/[4m.pnpm[24m/@babel+parser@7.29.0/node_modules/[4m@babel/parser[24m/lib/index.js:13828:25)
+    at TypeScriptParserMixin.parseExport (/home/runner/workspace/node_modules/[4m.pnpm[24m/@babel+parser@7.29.0/node_modules/[4m@babel/parser[24m/lib/index.js:9385:20)
+    at TypeScriptParserMixin.parseStatementContent (/home/runner/workspace/node_modules/[4m.pnpm[24m/@babel+parser@7.29.0/node_modules/[4m@babel/parser[24m/lib/index.js:12878:27)
+    at TypeScriptParserMixin.parseStatementContent (/home/runner/workspace/node_modules/[4m.pnpm[24m/@babel+parser@7.29.0/node_modules/[4m@babel/parser[24m/lib/index.js:9508:18)
+    at TypeScriptParserMixin.parseStatementLike (/home/runner/workspace/node_modules/[4m.pnpm[24m/@babel+parser@7.29.0/node_modules/[4m@babel/parser[24m/lib/index.js:12767:17)
+    at TypeScriptParserMixin.parseModuleItem (/home/runner/workspace/node_modules/[4m.pnpm[24m/@babel+parser@7.29.0/node_modules/[4m@babel/parser[24m/lib/index.js:12744:17)
+    at TypeScriptParserMixin.parseBlockOrModuleBlockBody (/home/runner/workspace/node_modules/[4m.pnpm[24m/@babel+parser@7.29.0/node_modules/[4m@babel/parser[24m/lib/index.js:13316:36)
+    at TypeScriptParserMixin.parseBlockBody (/home/runner/workspace/node_modules/[4m.pnpm[24m/@babel+parser@7.29.0/node_modules/[4m@babel/parser[24m/lib/index.js:13309:10)
+    at TypeScriptParserMixin.parseProgram (/home/runner/workspace/node_modules/[4m.pnpm[24m/@babel+parser@7.29.0/node_modules/[4m@babel/parser[24m/lib/index.js:12622:10)
+    at TypeScriptParserMixin.parseTopLevel (/home/runner/workspace/node_modules/[4m.pnpm[24m/@babel+parser@7.29.0/node_modules/[4m@babel/parser[24m/lib/index.js:12612:25)
+    at TypeScriptParserMixin.parse (/home/runner/workspace/node_modules/[4m.pnpm[24m/@babel+parser@7.29.0/node_modules/[4m@babel/parser[24m/lib/index.js:14488:25)
+    at TypeScriptParserMixin.parse (/home/runner/workspace/node_modules/[4m.pnpm[24m/@babel+parser@7.29.0/node_modules/[4m@babel/parser[24m/lib/index.js:10126:18)
+    at parse (/home/runner/workspace/node_modules/[4m.pnpm[24m/@babel+parser@7.29.0/node_modules/[4m@babel/parser[24m/lib/index.js:14522:38)
+    at TransformPluginContext.handler (file:///home/runner/workspace/node_modules/[4m.pnpm[24m/@replit+vite-plugin-cartographer@0.5.1/node_modules/[4m@replit/vite-plugin-cartographer[24m/dist/index.mjs:112:23)
+    at async EnvironmentPluginContainer.transform (file:///home/runner/workspace/node_modules/[4m.pnpm[24m/vite@7.3.1_@types+node@25.3.5_jiti@2.6.1_lightningcss@1.31.1_tsx@4.21.0_yaml@2.8.2/node_modules/[4mvite[24m/dist/node/chunks/config.js:28797:14)
+    at async loadAndTransform (file:///home/runner/workspace/node_modules/[4m.pnpm[24m/vite@7.3.1_@types+node@25.3.5_jiti@2.6.1_lightningcss@1.31.1_tsx@4.21.0_yaml@2.8.2/node_modules/[4mvite[24m/dist/node/chunks/config.js:22670:26)
+    at async DevEnvironment.warmupRequest (file:///home/runner/workspace/node_modules/[4m.pnpm[24m/vite@7.3.1_@types+node@25.3.5_jiti@2.6.1_lightningcss@1.31.1_tsx@4.21.0_yaml@2.8.2/node_modules/[4mvite[24m/dist/node/chunks/config.js:34839:4) {
+  code: [32m'BABEL_PARSER_SYNTAX_ERROR'[39m,
+  reasonCode: [32m'VarRedeclaration'[39m,
+  loc: Position { line: [33m84[39m, column: [33m8[39m, index: [33m2938[39m },
+  pos: [33m2938[39m,
+  syntaxPlugin: [90mundefined[39m
+}
+[2m2:48:03 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m Pre-transform error: /home/runner/workspace/artifacts/site-survey/src/pages/project-detail.tsx: Identifier 'filteredEntries' has already been declared. (84:8)
+
+[0m [90m 82 |[39m   [36mconst[39m totalPhotos [33m=[39m entries[33m.[39mreduce((sum[33m,[39m e) [33m=>[39m sum [33m+[39m e[33m.[39mphotos[33m.[39mlength[33m,[39m [35m0[39m)[33m;[39m
+ [90m 83 |[39m
+[31m[1m>[22m[39m[90m 84 |[39m   [36mconst[39m filteredEntries [33m=[39m useMemo(() [33m=>[39m {
+ [90m    |[39m         [31m[1m^[22m[39m
+ [90m 85 |[39m     [36mconst[39m q [33m=[39m search[33m.[39mtrim()[33m.[39mtoLowerCase()[33m;[39m
+ [90m 86 |[39m     [36mreturn[39m entries[33m.[39mfilter((entry) [33m=>[39m {
+ [90m 87 |[39m       [36mconst[39m matchType [33m=[39m [33m![39mtypeFilter [33m||[39m entry[33m.[39mtype [33m===[39m typeFilter[33m;[39m[0m
+  Plugin: [35mvite:react-babel[39m
+  File: [36m/home/runner/workspace/artifacts/site-survey/src/pages/project-detail.tsx[39m:84:8
+[33m  82 |    const totalPhotos = entries.reduce((sum, e) => sum + e.photos.length, 0);
+  83 |  
+  84 |    const filteredEntries = useMemo(() => {
+     |          ^
+  85 |      const q = search.trim().toLowerCase();
+  86 |      return entries.filter((entry) => {[39m
+[replit-cartographer] Error processing /home/runner/workspace/artifacts/site-survey/src/pages/project-detail.tsx: SyntaxError: Identifier 'filteredEntries' has already been declared. (84:8)
+    at constructor (/home/runner/workspace/node_modules/[4m.pnpm[24m/@babel+parser@7.29.0/node_modules/[4m@babel/parser[24m/lib/index.js:365:19)
+    at TypeScriptParserMixin.raise (/home/runner/workspace/node_modules/[4m.pnpm[24m/@babel+parser@7.29.0/node_modules/[4m@babel/parser[24m/lib/index.js:6599:19)
+    at TypeScriptScopeHandler.checkRedeclarationInScope (/home/runner/workspace/node_modules/[4m.pnpm[24m/@babel+parser@7.29.0/node_modules/[4m@babel/parser[24m/lib/index.js:1619:19)
+    at TypeScriptScopeHandler.declareName (/home/runner/workspace/node_modules/[4m.pnpm[24m/@babel+parser@7.29.0/node_modules/[4m@babel/parser[24m/lib/index.js:1585:12)
+    at TypeScriptScopeHandler.declareName (/home/runner/workspace/node_modules/[4m.pnpm[24m/@babel+parser@7.29.0/node_modules/[4m@babel/parser[24m/lib/index.js:4880:11)
+    at TypeScriptParserMixin.declareNameFromIdentifier (/home/runner/workspace/node_modules/[4m.pnpm[24m/@babel+parser@7.29.0/node_modules/[4m@babel/parser[24m/lib/index.js:7567:16)
+    at TypeScriptParserMixin.checkIdentifier (/home/runner/workspace/node_modules/[4m.pnpm[24m/@babel+parser@7.29.0/node_modules/[4m@babel/parser[24m/lib/index.js:7563:12)
+    at TypeScriptParserMixin.checkLVal (/home/runner/workspace/node_modules/[4m.pnpm[24m/@babel+parser@7.29.0/node_modules/[4m@babel/parser[24m/lib/index.js:7500:12)
+    at TypeScriptParserMixin.parseVarId (/home/runner/workspace/node_modules/[4m.pnpm[24m/@babel+parser@7.29.0/node_modules/[4m@babel/parser[24m/lib/index.js:13412:10)
+    at TypeScriptParserMixin.parseVarId (/home/runner/workspace/node_modules/[4m.pnpm[24m/@babel+parser@7.29.0/node_modules/[4m@babel/parser[24m/lib/index.js:9752:11)
+    at TypeScriptParserMixin.parseVar (/home/runner/workspace/node_modules/[4m.pnpm[24m/@babel+parser@7.29.0/node_modules/[4m@babel/parser[24m/lib/index.js:13383:12)
+    at TypeScriptParserMixin.parseVarStatement (/home/runner/workspace/node_modules/[4m.pnpm[24m/@babel+parser@7.29.0/node_modules/[4m@babel/parser[24m/lib/index.js:13230:10)
+    at TypeScriptParserMixin.parseVarStatement (/home/runner/workspace/node_modules/[4m.pnpm[24m/@babel+parser@7.29.0/node_modules/[4m@babel/parser[24m/lib/index.js:9408:31)
+    at TypeScriptParserMixin.parseStatementContent (/home/runner/workspace/node_modules/[4m.pnpm[24m/@babel+parser@7.29.0/node_modules/[4m@babel/parser[24m/lib/index.js:12851:23)
+    at TypeScriptParserMixin.parseStatementContent (/home/runner/workspace/node_modules/[4m.pnpm[24m/@babel+parser@7.29.0/node_modules/[4m@babel/parser[24m/lib/index.js:9508:18)
+    at TypeScriptParserMixin.parseStatementLike (/home/runner/workspace/node_modules/[4m.pnpm[24m/@babel+parser@7.29.0/node_modules/[4m@babel/parser[24m/lib/index.js:12767:17)
+    at TypeScriptParserMixin.parseStatementListItem (/home/runner/workspace/node_modules/[4m.pnpm[24m/@babel+parser@7.29.0/node_modules/[4m@babel/parser[24m/lib/index.js:12747:17)
+    at TypeScriptParserMixin.parseBlockOrModuleBlockBody (/home/runner/workspace/node_modules/[4m.pnpm[24m/@babel+parser@7.29.0/node_modules/[4m@babel/parser[24m/lib/index.js:13316:61)
+    at TypeScriptParserMixin.parseBlockBody (/home/runner/workspace/node_modules/[4m.pnpm[24m/@babel+parser@7.29.0/node_modules/[4m@babel/parser[24m/lib/index.js:13309:10)
+    at TypeScriptParserMixin.parseBlock (/home/runner/workspace/node_modules/[4m.pnpm[24m/@babel+parser@7.29.0/node_modules/[4m@babel/parser[24m/lib/index.js:13297:10)
+    at TypeScriptParserMixin.parseFunctionBody (/home/runner/workspace/node_modules/[4m.pnpm[24m/@babel+parser@7.29.0/node_modules/[4m@babel/parser[24m/lib/index.js:12100:24)
+    at TypeScriptParserMixin.parseFunctionBodyAndFinish (/home/runner/workspace/node_modules/[4m.pnpm[24m/@babel+parser@7.29.0/node_modules/[4m@babel/parser[24m/lib/index.js:12086:10)
+    at TypeScriptParserMixin.parseFunctionBodyAndFinish (/home/runner/workspace/node_modules/[4m.pnpm[24m/@babel+parser@7.29.0/node_modules/[4m@babel/parser[24m/lib/index.js:9172:18)
+    at /home/runner/workspace/node_modules/[4m.pnpm[24m/@babel+parser@7.29.0/node_modules/[4m@babel/parser[24m/lib/index.js:13445:12
+    at TypeScriptParserMixin.withSmartMixTopicForbiddingContext (/home/runner/workspace/node_modules/[4m.pnpm[24m/@babel+parser@7.29.0/node_modules/[4m@babel/parser[24m/lib/index.js:12403:14)
+    at TypeScriptParserMixin.parseFunction (/home/runner/workspace/node_modules/[4m.pnpm[24m/@babel+parser@7.29.0/node_modules/[4m@babel/parser[24m/lib/index.js:13444:10)
+    at TypeScriptParserMixin.parseExportDefaultExpression (/home/runner/workspace/node_modules/[4m.pnpm[24m/@babel+parser@7.29.0/node_modules/[4m@babel/parser[24m/lib/index.js:13907:19)
+    at TypeScriptParserMixin.parseExportDefaultExpression (/home/runner/workspace/node_modules/[4m.pnpm[24m/@babel+parser@7.29.0/node_modules/[4m@babel/parser[24m/lib/index.js:9402:18)
+    at TypeScriptParserMixin.parseExport (/home/runner/workspace/node_modules/[4m.pnpm[24m/@babel+parser@7.29.0/node_modules/[4m@babel/parser[24m/lib/index.js:13828:25)
+    at TypeScriptParserMixin.parseExport (/home/runner/workspace/node_modules/[4m.pnpm[24m/@babel+parser@7.29.0/node_modules/[4m@babel/parser[24m/lib/index.js:9385:20)
+    at TypeScriptParserMixin.parseStatementContent (/home/runner/workspace/node_modules/[4m.pnpm[24m/@babel+parser@7.29.0/node_modules/[4m@babel/parser[24m/lib/index.js:12878:27)
+    at TypeScriptParserMixin.parseStatementContent (/home/runner/workspace/node_modules/[4m.pnpm[24m/@babel+parser@7.29.0/node_modules/[4m@babel/parser[24m/lib/index.js:9508:18)
+    at TypeScriptParserMixin.parseStatementLike (/home/runner/workspace/node_modules/[4m.pnpm[24m/@babel+parser@7.29.0/node_modules/[4m@babel/parser[24m/lib/index.js:12767:17)
+    at TypeScriptParserMixin.parseModuleItem (/home/runner/workspace/node_modules/[4m.pnpm[24m/@babel+parser@7.29.0/node_modules/[4m@babel/parser[24m/lib/index.js:12744:17)
+    at TypeScriptParserMixin.parseBlockOrModuleBlockBody (/home/runner/workspace/node_modules/[4m.pnpm[24m/@babel+parser@7.29.0/node_modules/[4m@babel/parser[24m/lib/index.js:13316:36)
+    at TypeScriptParserMixin.parseBlockBody (/home/runner/workspace/node_modules/[4m.pnpm[24m/@babel+parser@7.29.0/node_modules/[4m@babel/parser[24m/lib/index.js:13309:10)
+    at TypeScriptParserMixin.parseProgram (/home/runner/workspace/node_modules/[4m.pnpm[24m/@babel+parser@7.29.0/node_modules/[4m@babel/parser[24m/lib/index.js:12622:10)
+    at TypeScriptParserMixin.parseTopLevel (/home/runner/workspace/node_modules/[4m.pnpm[24m/@babel+parser@7.29.0/node_modules/[4m@babel/parser[24m/lib/index.js:12612:25)
+    at TypeScriptParserMixin.parse (/home/runner/workspace/node_modules/[4m.pnpm[24m/@babel+parser@7.29.0/node_modules/[4m@babel/parser[24m/lib/index.js:14488:25)
+    at TypeScriptParserMixin.parse (/home/runner/workspace/node_modules/[4m.pnpm[24m/@babel+parser@7.29.0/node_modules/[4m@babel/parser[24m/lib/index.js:10126:18)
+    at parse (/home/runner/workspace/node_modules/[4m.pnpm[24m/@babel+parser@7.29.0/node_modules/[4m@babel/parser[24m/lib/index.js:14522:38)
+    at TransformPluginContext.handler (file:///home/runner/workspace/node_modules/[4m.pnpm[24m/@replit+vite-plugin-cartographer@0.5.1/node_modules/[4m@replit/vite-plugin-cartographer[24m/dist/index.mjs:112:23)
+    at async EnvironmentPluginContainer.transform (file:///home/runner/workspace/node_modules/[4m.pnpm[24m/vite@7.3.1_@types+node@25.3.5_jiti@2.6.1_lightningcss@1.31.1_tsx@4.21.0_yaml@2.8.2/node_modules/[4mvite[24m/dist/node/chunks/config.js:28797:14)
+    at async loadAndTransform (file:///home/runner/workspace/node_modules/[4m.pnpm[24m/vite@7.3.1_@types+node@25.3.5_jiti@2.6.1_lightningcss@1.31.1_tsx@4.21.0_yaml@2.8.2/node_modules/[4mvite[24m/dist/node/chunks/config.js:22670:26)
+    at async viteTransformMiddleware (file:///home/runner/workspace/node_modules/[4m.pnpm[24m/vite@7.3.1_@types+node@25.3.5_jiti@2.6.1_lightningcss@1.31.1_tsx@4.21.0_yaml@2.8.2/node_modules/[4mvite[24m/dist/node/chunks/config.js:24542:20) {
+  code: [32m'BABEL_PARSER_SYNTAX_ERROR'[39m,
+  reasonCode: [32m'VarRedeclaration'[39m,
+  loc: Position { line: [33m84[39m, column: [33m8[39m, index: [33m2938[39m },
+  pos: [33m2938[39m,
+  syntaxPlugin: [90mundefined[39m
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m2:48:04 PM[22m [31m[1m[vite][22m[39m [31mInternal server error: /home/runner/workspace/artifacts/site-survey/src/pages/project-detail.tsx: Identifier 'filteredEntries' has already been declared. (84:8)
+
+[0m [90m 82 |[31m   [36mconst[31m totalPhotos [33m=[31m entries[33m.[31mreduce((sum[33m,[31m e) [33m=>[31m sum [33m+[31m e[33m.[31mphotos[33m.[31mlength[33m,[31m [35m0[31m)[33m;[31m
+ [90m 83 |[31m
+[31m[1m>[22m[31m[90m 84 |[31m   [36mconst[31m filteredEntries [33m=[31m useMemo(() [33m=>[31m {
+ [90m    |[31m         [31m[1m^[22m[31m
+ [90m 85 |[31m     [36mconst[31m q [33m=[31m search[33m.[31mtrim()[33m.[31mtoLowerCase()[33m;[31m
+ [90m 86 |[31m     [36mreturn[31m entries[33m.[31mfilter((entry) [33m=>[31m {
+ [90m 87 |[31m       [36mconst[31m matchType [33m=[31m [33m![31mtypeFilter [33m||[31m entry[33m.[31mtype [33m===[31m typeFilter[33m;[31m[0m[39m
+  Plugin: [35mvite:react-babel[39m
+  File: [36m/home/runner/workspace/artifacts/site-survey/src/pages/project-detail.tsx[39m:84:8
+[33m  82 |    const totalPhotos = entries.reduce((sum, e) => sum + e.photos.length, 0);
+  83 |  
+  84 |    const filteredEntries = useMemo(() => {
+     |          ^
+  85 |      const q = search.trim().toLowerCase();
+  86 |      return entries.filter((entry) => {[39m
+      at constructor (/home/runner/workspace/node_modules/.pnpm/@babel+parser@7.29.0/node_modules/@babel/parser/lib/index.js:365:19)
+      at TypeScriptParserMixin.raise (/home/runner/workspace/node_modules/.pnpm/@babel+parser@7.29.0/node_modules/@babel/parser/lib/index.js:6599:19)
+      at TypeScriptScopeHandler.checkRedeclarationInScope (/home/runner/workspace/node_modules/.pnpm/@babel+parser@7.29.0/node_modules/@babel/parser/lib/index.js:1619:19)
+      at TypeScriptScopeHandler.declareName (/home/runner/workspace/node_modules/.pnpm/@babel+parser@7.29.0/node_modules/@babel/parser/lib/index.js:1585:12)
+      at TypeScriptScopeHandler.declareName (/home/runner/workspace/node_modules/.pnpm/@babel+parser@7.29.0/node_modules/@babel/parser/lib/index.js:4880:11)
+      at TypeScriptParserMixin.declareNameFromIdentifier (/home/runner/workspace/node_modules/.pnpm/@babel+parser@7.29.0/node_modules/@babel/parser/lib/index.js:7567:16)
+      at TypeScriptParserMixin.checkIdentifier (/home/runner/workspace/node_modules/.pnpm/@babel+parser@7.29.0/node_modules/@babel/parser/lib/index.js:7563:12)
+      at TypeScriptParserMixin.checkLVal (/home/runner/workspace/node_modules/.pnpm/@babel+parser@7.29.0/node_modules/@babel/parser/lib/index.js:7500:12)
+      at TypeScriptParserMixin.parseVarId (/home/runner/workspace/node_modules/.pnpm/@babel+parser@7.29.0/node_modules/@babel/parser/lib/index.js:13412:10)
+      at TypeScriptParserMixin.parseVarId (/home/runner/workspace/node_modules/.pnpm/@babel+parser@7.29.0/node_modules/@babel/parser/lib/index.js:9752:11)
+      at TypeScriptParserMixin.parseVar (/home/runner/workspace/node_modules/.pnpm/@babel+parser@7.29.0/node_modules/@babel/parser/lib/index.js:13383:12)
+      at TypeScriptParserMixin.parseVarStatement (/home/runner/workspace/node_modules/.pnpm/@babel+parser@7.29.0/node_modules/@babel/parser/lib/index.js:13230:10)
+      at TypeScriptParserMixin.parseVarStatement (/home/runner/workspace/node_modules/.pnpm/@babel+parser@7.29.0/node_modules/@babel/parser/lib/index.js:9408:31)
+      at TypeScriptParserMixin.parseStatementContent (/home/runner/workspace/node_modules/.pnpm/@babel+parser@7.29.0/node_modules/@babel/parser/lib/index.js:12851:23)
+      at TypeScriptParserMixin.parseStatementContent (/home/runner/workspace/node_modules/.pnpm/@babel+parser@7.29.0/node_modules/@babel/parser/lib/index.js:9508:18)
+      at TypeScriptParserMixin.parseStatementLike (/home/runner/workspace/node_modules/.pnpm/@babel+parser@7.29.0/node_modules/@babel/parser/lib/index.js:12767:17)
+      at TypeScriptParserMixin.parseStatementListItem (/home/runner/workspace/node_modules/.pnpm/@babel+parser@7.29.0/node_modules/@babel/parser/lib/index.js:12747:17)
+      at TypeScriptParserMixin.parseBlockOrModuleBlockBody (/home/runner/workspace/node_modules/.pnpm/@babel+parser@7.29.0/node_modules/@babel/parser/lib/index.js:13316:61)
+      at TypeScriptParserMixin.parseBlockBody (/home/runner/workspace/node_modules/.pnpm/@babel+parser@7.29.0/node_modules/@babel/parser/lib/index.js:13309:10)
+      at TypeScriptParserMixin.parseBlock (/home/runner/workspace/node_modules/.pnpm/@babel+parser@7.29.0/node_modules/@babel/parser/lib/index.js:13297:10)
+      at TypeScriptParserMixin.parseFunctionBody (/home/runner/workspace/node_modules/.pnpm/@babel+parser@7.29.0/node_modules/@babel/parser/lib/index.js:12100:24)
+      at TypeScriptParserMixin.parseFunctionBodyAndFinish (/home/runner/workspace/node_modules/.pnpm/@babel+parser@7.29.0/node_modules/@babel/parser/lib/index.js:12086:10)
+      at TypeScriptParserMixin.parseFunctionBodyAndFinish (/home/runner/workspace/node_modules/.pnpm/@babel+parser@7.29.0/node_modules/@babel/parser/lib/index.js:9172:18)
+      at /home/runner/workspace/node_modules/.pnpm/@babel+parser@7.29.0/node_modules/@babel/parser/lib/index.js:13445:12
+      at TypeScriptParserMixin.withSmartMixTopicForbiddingContext (/home/runner/workspace/node_modules/.pnpm/@babel+parser@7.29.0/node_modules/@babel/parser/lib/index.js:12403:14)
+      at TypeScriptParserMixin.parseFunction (/home/runner/workspace/node_modules/.pnpm/@babel+parser@7.29.0/node_modules/@babel/parser/lib/index.js:13444:10)
+      at TypeScriptParserMixin.parseExportDefaultExpression (/home/runner/workspace/node_modules/.pnpm/@babel+parser@7.29.0/node_modules/@babel/parser/lib/index.js:13907:19)
+      at TypeScriptParserMixin.parseExportDefaultExpression (/home/runner/workspace/node_modules/.pnpm/@babel+parser@7.29.0/node_modules/@babel/parser/lib/index.js:9402:18)
+      at TypeScriptParserMixin.parseExport (/home/runner/workspace/node_modules/.pnpm/@babel+parser@7.29.0/node_modules/@babel/parser/lib/index.js:13828:25)
+      at TypeScriptParserMixin.parseExport (/home/runner/workspace/node_modules/.pnpm/@babel+parser@7.29.0/node_modules/@babel/parser/lib/index.js:9385:20)
+      at TypeScriptParserMixin.parseStatementContent (/home/runner/workspace/node_modules/.pnpm/@babel+parser@7.29.0/node_modules/@babel/parser/lib/index.js:12878:27)
+      at TypeScriptParserMixin.parseStatementContent (/home/runner/workspace/node_modules/.pnpm/@babel+parser@7.29.0/node_modules/@babel/parser/lib/index.js:9508:18)
+      at TypeScriptParserMixin.parseStatementLike (/home/runner/workspace/node_modules/.pnpm/@babel+parser@7.29.0/node_modules/@babel/parser/lib/index.js:12767:17)
+      at TypeScriptParserMixin.parseModuleItem (/home/runner/workspace/node_modules/.pnpm/@babel+parser@7.29.0/node_modules/@babel/parser/lib/index.js:12744:17)
+      at TypeScriptParserMixin.parseBlockOrModuleBlockBody (/home/runner/workspace/node_modules/.pnpm/@babel+parser@7.29.0/node_modules/@babel/parser/lib/index.js:13316:36)
+      at TypeScriptParserMixin.parseBlockBody (/home/runner/workspace/node_modules/.pnpm/@babel+parser@7.29.0/node_modules/@babel/parser/lib/index.js:13309:10)
+      at TypeScriptParserMixin.parseProgram (/home/runner/workspace/node_modules/.pnpm/@babel+parser@7.29.0/node_modules/@babel/parser/lib/index.js:12622:10)
+      at TypeScriptParserMixin.parseTopLevel (/home/runner/workspace/node_modules/.pnpm/@babel+parser@7.29.0/node_modules/@babel/parser/lib/index.js:12612:25)
+      at TypeScriptParserMixin.parse (/home/runner/workspace/node_modules/.pnpm/@babel+parser@7.29.0/node_modules/@babel/parser/lib/index.js:14488:25)
+      at TypeScriptParserMixin.parse (/home/runner/workspace/node_modules/.pnpm/@babel+parser@7.29.0/node_modules/@babel/parser/lib/index.js:10126:18)
+      at parse (/home/runner/workspace/node_modules/.pnpm/@babel+parser@7.29.0/node_modules/@babel/parser/lib/index.js:14522:38)
+      at parser (/home/runner/workspace/node_modules/.pnpm/@babel+core@7.29.0/node_modules/@babel/core/lib/parser/index.js:41:34)
+      at parser.next (<anonymous>)
+      at normalizeFile (/home/runner/workspace/node_modules/.pnpm/@babel+core@7.29.0/node_modules/@babel/core/lib/transformation/normalize-file.js:64:37)
+      at normalizeFile.next (<anonymous>)
+      at run (/home/runner/workspace/node_modules/.pnpm/@babel+core@7.29.0/node_modules/@babel/core/lib/transformation/index.js:22:50)
+      at run.next (<anonymous>)
+      at transform (/home/runner/workspace/node_modules/.pnpm/@babel+core@7.29.0/node_modules/@babel/core/lib/transform.js:22:33)
+      at transform.next (<anonymous>)
+      at step (/home/runner/workspace/node_modules/.pnpm/gensync@1.0.0-beta.2/node_modules/gensync/index.js:261:32)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m2:48:11 PM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/project-detail.tsx, /src/index.css[22m

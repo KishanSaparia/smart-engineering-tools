@@ -1,0 +1,295 @@
+Prompt
+
+Act as a senior software architect and electrical engineering workflow expert.
+
+Build a highly professional, scalable, offline-first web application for electrical field data collection, specifically designed for power system studies including:
+
+arc flash analysis
+short circuit studies
+relay coordination
+single line diagram preparation
+equipment documentation
+
+The application must be designed with enterprise-grade architecture and optimized to handle large datasets, including high-resolution equipment photos.
+
+The system must be future-ready for conversion into a desktop application (.exe) using Electron or similar frameworks.
+
+Core Objective
+
+Create a structured digital survey platform to replace manual electrical field data collection methods.
+
+The system must allow engineers to efficiently capture equipment data during site visits and automatically organize information for engineering studies.
+
+The system must significantly reduce time required for:
+
+arc flash studies
+coordination studies
+SLD creation
+equipment documentation
+
+Primary Workflow
+
+Project creation → equipment selection → data entry → photo capture → repeat → export project
+
+Detailed workflow:
+
+Create new project
+Enter project information
+Select equipment type
+Enter equipment data
+Upload multiple equipment photos
+Save equipment record
+Repeat for multiple equipment
+Complete entry
+Export structured engineering package
+Equipment Types
+
+Initial equipment types:
+
+Switchgear (SWGR)
+Switchboard (SWBD)
+Panelboard (PNL)
+Distribution Switch (DSW)
+Motor Control Center (MCC)
+Variable Frequency Drive (VFD)
+Transformer
+Generator
+ATS
+UPS
+Unknown equipment (OTHER)
+
+System must allow adding new equipment types easily in the future.
+
+Data Structure Requirements
+
+Each equipment form must support:
+
+Basic Information
+Electrical ratings
+Protection data
+Cable information
+Bus information
+Arc flash label information
+Remarks
+Photo attachments
+
+Each form must follow consistent structure for easy data processing.
+
+Photo Requirements (Critical)
+
+System must support large photo datasets.
+
+Requirements:
+
+allow selecting up to 50 photos at one time
+support high resolution images
+fast processing without browser freezing
+show upload progress indicator
+allow drag and drop upload
+allow preview thumbnails
+allow remove photo before save
+auto rename photos sequentially
+
+Photo naming rule:
+
+Each photo name must automatically follow equipment name.
+
+Example:
+
+Equipment Name = SWBD-A
+
+Photo names:
+
+SWBD-A_01.jpg
+SWBD-A_02.jpg
+SWBD-A_03.jpg
+SWBD-A_04.jpg
+
+Naming must always follow:
+
+EquipmentName_01
+EquipmentName_02
+EquipmentName_03
+
+Photos must be organized automatically:
+
+ProjectName/
+
+Photos/
+
+SWGR/
+
+SWGR-001/
+
+SWGR-001_01.jpg
+SWGR-001_02.jpg
+
+SWBD/
+
+SWBD-A/
+
+SWBD-A_01.jpg
+SWBD-A_02.jpg
+
+PNL/
+
+PNL-01/
+
+PNL-01_01.jpg
+
+Storage Architecture
+
+Use IndexedDB for:
+
+offline data storage
+large image storage
+project persistence
+
+Do NOT use localStorage for image storage.
+
+Ensure efficient memory usage.
+
+Use async processing.
+
+Prevent browser crashes.
+
+Export Requirements
+
+On project completion generate:
+
+Excel report
+ZIP archive containing organized photos
+
+Excel file must contain separate sheets per equipment type:
+
+SWGR sheet
+SWBD sheet
+PNL sheet
+MCC sheet
+etc.
+
+Column headers must match form fields exactly.
+
+ZIP structure must follow engineering-friendly naming.
+
+User Interface Requirements
+
+Design must look like professional engineering software.
+
+UI must include:
+
+clean modern layout
+card based sections
+grid alignment
+clear field grouping
+sticky header
+progress indicators
+icons where appropriate
+high readability
+fast navigation
+minimal typing effort
+keyboard friendly
+
+Highlight required fields using red star (*)
+
+Show validation warnings clearly.
+
+Scroll automatically to missing fields.
+
+Disable save button during processing.
+
+Provide confirmation messages.
+
+Performance Requirements
+
+Application must handle:
+
+multiple equipment entries per project
+multiple high resolution images per equipment
+
+Application must remain responsive.
+
+Optimize rendering performance.
+
+Minimize blocking operations.
+
+Use async processing where required.
+
+Advanced Features (Architecture Ready)
+
+Design code to allow future addition of:
+
+automatic single line diagram generation
+auto load list generation
+QR code label generation
+equipment ID auto numbering
+project reopen capability
+edit existing equipment
+duplicate equipment entry
+equipment search filter
+project summary dashboard
+PDF engineering report generation
+Arc Flash label auto naming convention
+
+Technical Stack
+
+Frontend:
+
+HTML5
+CSS3
+Vanilla JavaScript (modular structure)
+
+Libraries:
+
+IndexedDB API
+JSZip
+SheetJS (xlsx)
+
+Architecture must be modular and maintainable.
+
+Use reusable form components.
+
+Avoid framework lock-in.
+
+Ensure easy migration to Electron desktop app.
+
+Folder Structure Requirement
+
+Provide clean project structure:
+
+index.html
+equipment.html
+forms/
+
+swgr.html
+swbd.html
+pnl.html
+other.html
+
+js/
+
+database.js
+export.js
+ui.js
+validation.js
+
+css/
+
+styles.css
+
+libs/
+
+xlsx.full.min.js
+jszip.min.js
+
+Deliverables
+
+Provide fully working code.
+
+Ensure offline functionality.
+
+Include comments explaining architecture.
+
+Provide example test data.
+
+Ensure consistent UI across all forms.

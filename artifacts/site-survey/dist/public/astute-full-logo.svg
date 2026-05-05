@@ -1,0 +1,18 @@
+<svg width="1024" height="486" viewBox="0 0 1024 486" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1024" height="486" fill="#F2F2F2"/>
+
+  <!-- Left triangle mark -->
+  <path d="M230 50L353 389H24L230 50ZM230 107L98 337H286L230 107Z" fill="#0D4F89"/>
+
+  <!-- Survey lines -->
+  <path d="M24 108C94 108 135 132 179 186C227 246 271 279 354 279" stroke="#1F255D" stroke-width="12" fill="none"/>
+  <path d="M24 158C98 158 146 186 198 250C245 309 288 326 354 326" stroke="#E62A15" stroke-width="12" fill="none"/>
+  <path d="M24 206C104 206 151 236 206 298C251 347 295 365 354 365" stroke="#1F255D" stroke-width="12" fill="none"/>
+
+  <!-- Brand text -->
+  <text x="398" y="220" fill="#0D4F89" font-family="Arial, Helvetica, sans-serif" font-size="170" font-weight="500">ASTUTE</text>
+  <text x="368" y="358" fill="#000000" font-family="Arial, Helvetica, sans-serif" font-size="120" font-weight="500">ENGINEERING</text>
+  <text x="32" y="452" fill="#000000" font-family="Arial, Helvetica, sans-serif" font-size="66" font-weight="400">Creative Designs</text>
+  <text x="462" y="452" fill="#C91E3E" font-family="Arial, Helvetica, sans-serif" font-size="66" font-weight="400">|</text>
+  <text x="500" y="452" fill="#000000" font-family="Arial, Helvetica, sans-serif" font-size="66" font-weight="400">Intelligent Solutions</text>
+</svg>

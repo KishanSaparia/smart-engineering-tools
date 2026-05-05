@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, type Ref } from 'react';
 import { Activity, AlertTriangle, ThumbsUp, CheckCircle2 } from 'lucide-react';
 import CalcShell from './CalcShell';
 import {
@@ -68,6 +68,10 @@ function pctVariant(p: number): 'green' | 'amber' | 'red' {
   if (p > 5) return 'red';
   if (p > 3) return 'amber';
   return 'green';
+}
+
+function asDivRef(ref: Ref<HTMLElement>): Ref<HTMLDivElement> {
+  return ref as Ref<HTMLDivElement>;
 }
 
 /* ── Voltage profile SVG ──────────────────────────────────── */
@@ -206,7 +210,7 @@ export default function VoltageDrop() {
 
       {/* ── Circuit Parameters ─────────────────────────── */}
       <CalcSection title="Circuit Parameters">
-        <div ref={voltageRef.ref}>
+        <div ref={asDivRef(voltageRef.ref)}>
           <CalcInput
             label="System Voltage" unit="V" required fieldId="vd-voltage"
             type="number" min="0" value={form.voltage}
@@ -214,7 +218,7 @@ export default function VoltageDrop() {
             placeholder="e.g. 415" invalid={error?.field === 'voltage'}
           />
         </div>
-        <div ref={currentRef.ref}>
+        <div ref={asDivRef(currentRef.ref)}>
           <CalcInput
             label="Load Current" unit="A" required fieldId="vd-current"
             type="number" min="0" value={form.current}
@@ -222,7 +226,7 @@ export default function VoltageDrop() {
             placeholder="e.g. 50" invalid={error?.field === 'current'}
           />
         </div>
-        <div ref={lengthRef.ref}>
+        <div ref={asDivRef(lengthRef.ref)}>
           <p className="text-xs font-medium text-muted-foreground mb-1.5">
             Cable Length <span className="text-primary">*</span>
           </p>
@@ -293,7 +297,7 @@ export default function VoltageDrop() {
             )}
           </div>
         ) : (
-          <div ref={manualRRef.ref} className="pt-1">
+          <div ref={asDivRef(manualRRef.ref)} className="pt-1">
             <CalcInput
               label="Resistance" unit={form.lengthUnit === 'ft' ? 'Ω/1000 ft' : 'Ω/km'}
               required fieldId="vd-resistance" type="number" min="0" step="0.001"
@@ -318,7 +322,7 @@ export default function VoltageDrop() {
 
       {/* ── Results ────────────────────────────────────── */}
       {result && (
-        <div ref={resultRef} id="vd-results" className="space-y-4 animate-in fade-in slide-in-from-bottom-3 duration-300">
+        <div ref={asDivRef(resultRef)} id="vd-results" className="space-y-4 animate-in fade-in slide-in-from-bottom-3 duration-300">
           <CalcSection title="Results">
             {/* Visual drop bar */}
             <VoltageProfileDiagram pct={pct} limit={allowedPct} />

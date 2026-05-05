@@ -1,4 +1,4 @@
-import { useState, type Ref } from 'react';
+import { useRef, useState, type RefObject } from 'react';
 import { Activity, AlertTriangle, ThumbsUp, CheckCircle2 } from 'lucide-react';
 import CalcShell from './CalcShell';
 import {
@@ -11,7 +11,6 @@ import {
   ResultGrid,
   StatusBanner,
   InfoBox,
-  useScrollRef,
 } from './CalcUI';
 import {
   AWG_TABLE,
@@ -70,8 +69,14 @@ function pctVariant(p: number): 'green' | 'amber' | 'red' {
   return 'green';
 }
 
-function asDivRef(ref: Ref<HTMLElement>): Ref<HTMLDivElement> {
-  return ref as Ref<HTMLDivElement>;
+function useDivScrollRef(): { ref: RefObject<HTMLDivElement | null>; scrollTo: () => void } {
+  const ref = useRef<HTMLDivElement | null>(null);
+
+  const scrollTo = () => {
+    ref.current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  };
+
+  return { ref, scrollTo };
 }
 
 /* ── Voltage profile SVG ──────────────────────────────────── */
@@ -102,11 +107,11 @@ export default function VoltageDrop() {
   const [result, setResult] = useState<Result | null>(null);
   const [error, setError] = useState<{ field: FieldKey | null; msg: string } | null>(null);
 
-  const { ref: resultRef, scrollTo: scrollToResult } = useScrollRef();
-  const voltageRef = useScrollRef();
-  const currentRef = useScrollRef();
-  const lengthRef = useScrollRef();
-  const manualRRef = useScrollRef();
+  const { ref: resultRef, scrollTo: scrollToResult } = useDivScrollRef();
+  const voltageRef = useDivScrollRef();
+  const currentRef = useDivScrollRef();
+  const lengthRef = useDivScrollRef();
+  const manualRRef = useDivScrollRef();
 
   const fieldScrollMap: Record<FieldKey, { scrollTo: () => void }> = {
     voltage: voltageRef,
@@ -210,7 +215,7 @@ export default function VoltageDrop() {
 
       {/* ── Circuit Parameters ─────────────────────────── */}
       <CalcSection title="Circuit Parameters">
-        <div ref={asDivRef(voltageRef.ref)}>
+        <div ref={voltageRef.ref}>
           <CalcInput
             label="System Voltage" unit="V" required fieldId="vd-voltage"
             type="number" min="0" value={form.voltage}
@@ -218,7 +223,7 @@ export default function VoltageDrop() {
             placeholder="e.g. 415" invalid={error?.field === 'voltage'}
           />
         </div>
-        <div ref={asDivRef(currentRef.ref)}>
+        <div ref={currentRef.ref}>
           <CalcInput
             label="Load Current" unit="A" required fieldId="vd-current"
             type="number" min="0" value={form.current}
@@ -226,7 +231,7 @@ export default function VoltageDrop() {
             placeholder="e.g. 50" invalid={error?.field === 'current'}
           />
         </div>
-        <div ref={asDivRef(lengthRef.ref)}>
+        <div ref={lengthRef.ref}>
           <p className="text-xs font-medium text-muted-foreground mb-1.5">
             Cable Length <span className="text-primary">*</span>
           </p>
@@ -297,7 +302,7 @@ export default function VoltageDrop() {
             )}
           </div>
         ) : (
-          <div ref={asDivRef(manualRRef.ref)} className="pt-1">
+          <div ref={manualRRef.ref} className="pt-1">
             <CalcInput
               label="Resistance" unit={form.lengthUnit === 'ft' ? 'Ω/1000 ft' : 'Ω/km'}
               required fieldId="vd-resistance" type="number" min="0" step="0.001"
@@ -322,7 +327,7 @@ export default function VoltageDrop() {
 
       {/* ── Results ────────────────────────────────────── */}
       {result && (
-        <div ref={asDivRef(resultRef)} id="vd-results" className="space-y-4 animate-in fade-in slide-in-from-bottom-3 duration-300">
+        <div ref={resultRef} id="vd-results" className="space-y-4 animate-in fade-in slide-in-from-bottom-3 duration-300">
           <CalcSection title="Results">
             {/* Visual drop bar */}
             <VoltageProfileDiagram pct={pct} limit={allowedPct} />
